@@ -10,7 +10,7 @@ function NavBar() {
     <Navbar bg="light" variant="light">
         <Container>
           <Navbar.Brand href="/">Home</Navbar.Brand>
-          <Nav className="me-auto my-2 my-lg-0"
+          <Nav className="me-auto"
           >
             <Nav.Link href="/buy">Buy</Nav.Link>
             <Nav.Link href="/rent">Rent</Nav.Link>

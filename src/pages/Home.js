@@ -1,18 +1,60 @@
-import React from 'react'
-import logo from "../img/logo.jpeg"
+import React, { useEffect, useState } from 'react'
+import HouseCard from '../components/HouseCard'
+import logo from '../img/logo.jpeg'
+import axios from 'axios'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 const Home = () => {
+  const [house, setHouse] = useState([])
+
+  const url ='http://localhost:3001/viewhouse'
+
+  useEffect(() => {
+    async function fetchHouse() {
+      try {
+        const response = await axios.get(url)
+        console.log(response.data)
+        setHouse(response.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchHouse()
+  }, [])
+  
   return (
-   <div className="hero-image">
-    <img src={logo} alt="logo" width= "100%" />
-    <div class="hero-text">
-    <h1> Find it. Tour it. Own it.</h1>
-    <p>“Relationships Built on Trust”</p>
-    <button className="buy" space-between = "2px">Buy</button>
-    <button> Rent</button>
+    <>  
+
+    <div className="hero-image">
+      <img src={logo} alt="logo" width="100%" />
+      <p> New Listings in Aledo,TX</p>
+      <div class="hero-text">
+        <h1> Find it. Tour it. Own it.</h1>
+        <p>“Relationships Built on Trust”</p>
+        <button className="sell" space-between="2px">
+          Sell
+        </button>
+        <button> Rent</button>
+       
+        
+      </div>
     </div>
-    </div>
-   
+    <Row>
+          {house.map((houseAtual) => {
+            return (
+              <Col>
+                <HouseCard
+                  address={houseAtual.address}
+                  sellRent={houseAtual.sellRent}
+                  builYear={houseAtual.builYear}
+                  picture={houseAtual.picture}
+                />
+              </Col>
+            )
+          })}
+        </Row>
+    </>
   )
 }
 
