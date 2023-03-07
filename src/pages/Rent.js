@@ -2,7 +2,11 @@ import React from 'react'
 
 const Rent = () => {
   return (
-    <div>Rent</div>
+    <div className="container">
+     
+   
+  
+ </div>
   )
 }
 
