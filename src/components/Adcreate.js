@@ -2,7 +2,7 @@ import React from 'react'
 
 const Adcreate = () => {
   return (
-    <div>Adcreate</div>
+    <div>Adcreate2</div>
   )
 }
 
