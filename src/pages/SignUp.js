@@ -1,48 +1,49 @@
-import { useState } from 'react'
-import axios from 'axios'
-import { Icon } from 'react-icons-kit'
-import { eye } from 'react-icons-kit/feather/eye'
-import { eyeOff } from 'react-icons-kit/feather/eyeOff'
+import "../StyleCss/Login.css";
+import { useState } from "react";
+import axios from "axios";
+import { Icon } from "react-icons-kit";
+import { eye } from "react-icons-kit/feather/eye";
+import { eyeOff } from "react-icons-kit/feather/eyeOff";
 
 const SignUpPage = () => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [type, setType] = useState('password')
-  const [icon, setIcon] = useState(eyeOff)
+  const [type, setType] = useState("password");
+  const [icon, setIcon] = useState(eyeOff);
 
   const handleToggle = () => {
-    if (type === 'password') {
-      setIcon(eye)
-      setType('text')
+    if (type === "password") {
+      setIcon(eye);
+      setType("text");
     } else {
-      setIcon(eyeOff)
-      setType('password')
+      setIcon(eyeOff);
+      setType("password");
     }
-  }
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const newUser = {
       name,
       email,
       password,
-    }
+    };
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/sign-up`, newUser)
       .then((response) => {
         if (response.status === 201) {
-          setName('')
-          setEmail('')
-          setPassword('')
-          alert('User created')
+          setName("");
+          setEmail("");
+          setPassword("");
+          alert("User created");
         }
       })
-      .catch((error) => console.log(error))
-  }
+      .catch((error) => console.log(error));
+  };
 
   return (
     <>
@@ -58,7 +59,7 @@ const SignUpPage = () => {
               className="form-control"
               id="name"
               aria-describedby="emailHelp"
-              onChange={e => setName(e.target.value)} 
+              onChange={(e) => setName(e.target.value)}
             />
             <label htmlFor="exampleInputEmail1" className="form-label">
               Email address
@@ -76,15 +77,18 @@ const SignUpPage = () => {
               <label htmlFor="exampleInputPassword1" className="form-label">
                 Password
               </label>
-              <input
-                type={type}
-                className="form-control"
-                id="exampleInputPassword1"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <span onClick={handleToggle}>
-                <Icon icon={icon} size={25} />
-              </span>
+              <div className="icon">
+                <input
+                  type={type}
+                  className="form-control"
+                  id="exampleInputPassword1"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+
+                <span className="iconEyes" onClick={handleToggle}>
+                  <Icon icon={icon} size={25} />
+                </span>
+              </div>
             </div>
           </div>
           <button type="submit" className="btn btn-dark mt-3">
@@ -93,7 +97,7 @@ const SignUpPage = () => {
         </form>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default SignUpPage
+export default SignUpPage;

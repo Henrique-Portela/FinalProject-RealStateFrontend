@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <>
       <div className="hero-image">
-        <video src={Video} autoPlay loop muted width="100%" />
+        <video src={Video} autoPlay loop muted width="100%" height="30%" />
         <p> New Listings in Aledo,TX</p>
         <div className="hero-text">
           <h1> Find it. Tour it. Own it.</h1>
