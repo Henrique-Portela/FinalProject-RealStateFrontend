@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../StyleCss/Login.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Icon } from "react-icons-kit";
@@ -62,14 +63,15 @@ const Login = () => {
               <label htmlFor="exampleInputPassword1" className="form-label">
                 Password
               </label>
-              <input
+               <div className="icon"> 
+               <input
                 type={type}
                 className="form-control"
                 id="exampleInputPassword1"
                 onChange={(e) => setPassword(e.target.value)}
-               
-              />
-               <span onClick={handleToggle}><Icon icon={icon} size={25}/></span>
+               />
+                <span className="iconEyes" onClick={handleToggle}><Icon icon={icon} size={25}/></span>
+                </div>
             </div>
           </div>
           <button type="submit" className="btn btn-dark mt-3">
