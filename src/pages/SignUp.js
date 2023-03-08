@@ -1,12 +1,12 @@
-import { useState } from "react";
 import "../StyleCss/Login.css";
+import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { Icon } from "react-icons-kit";
 import { eye } from "react-icons-kit/feather/eye";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 
-const Login = () => {
+const SignUpPage = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,16 +27,20 @@ const Login = () => {
     e.preventDefault();
 
     const newUser = {
+      name,
       email,
       password,
     };
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}/login`, newUser)
+      .post(`${process.env.REACT_APP_API_URL}/sign-up`, newUser)
       .then((response) => {
-        localStorage.setItem("token", response.data.token);
-        setEmail("");
-        setPassword("");
+        if (response.status === 201) {
+          setName("");
+          setEmail("");
+          setPassword("");
+          alert("User created");
+        }
       })
       .catch((error) => console.log(error));
   };
@@ -44,15 +48,24 @@ const Login = () => {
   return (
     <>
       <div className="myform bg-light w-25 rounded-2 position-absolute top-50 start-50 translate-middle">
-        <h1 className="text-center">Login Form</h1>
+        <h1 className="text-center">Register</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-3 ">
+            <label htmlFor="exampleInputEmail1" className="form-label">
+              Name
+            </label>
+            <input
+              type="name"
+              className="form-control"
+              id="name"
+              aria-describedby="emailHelp"
+              onChange={(e) => setName(e.target.value)}
+            />
             <label htmlFor="exampleInputEmail1" className="form-label">
               Email address
             </label>
             <input
-              type="text"
-              value={email}
+              type="email"
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
@@ -64,28 +77,27 @@ const Login = () => {
               <label htmlFor="exampleInputPassword1" className="form-label">
                 Password
               </label>
-               <div className="icon"> 
-               <input
-                type="password"
-                value={password}
-                className="form-control"
-                id="exampleInputPassword1"
-                onChange={(e) => setPassword(e.target.value)}
-               />
-                <span className="iconEyes" onClick={handleToggle}><Icon icon={icon} size={25}/></span>
-                </div>
+              <div className="icon">
+                <input
+                  type={type}
+                  className="form-control"
+                  id="exampleInputPassword1"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+
+                <span className="iconEyes" onClick={handleToggle}>
+                  <Icon icon={icon} size={25} />
+                </span>
+              </div>
             </div>
           </div>
           <button type="submit" className="btn btn-dark mt-3">
-            LOGIN
+            Create account
           </button>
-          <p>
-            Not a member? <Link to="/signup">Signup now</Link>
-          </p>
         </form>
       </div>
     </>
   );
 };
 
-export default Login;
+export default SignUpPage;

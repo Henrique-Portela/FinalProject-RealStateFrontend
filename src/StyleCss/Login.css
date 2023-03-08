@@ -1,0 +1,14 @@
+
+
+.icon{
+display: flex;
+align-items: center;
+position: relative;
+justify-content: flex-end;
+  
+}
+
+.iconEyes{
+  position: absolute;
+  margin-right: 10px;
+}
