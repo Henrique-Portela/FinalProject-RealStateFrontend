@@ -4,7 +4,6 @@ import HouseCard from '../components/HouseCard'
 import axios from 'axios'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Video from '../Video/video.mp4'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
@@ -28,7 +27,7 @@ const Home = () => {
   return (
     <>
       <div className="hero-image">
-        <video src={Video} autoPlay loop muted width="100%" height="30%" />
+        
         <p> New Listings in Aledo,TX</p>
         <div className="hero-text">
           <h1> Find it. Tour it. Own it.</h1>

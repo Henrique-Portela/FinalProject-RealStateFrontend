@@ -34,7 +34,7 @@ const Login = () => {
     axios
       .post(`${process.env.REACT_APP_API_URL}/login`, newUser)
       .then((response) => {
-        localStorage.setItem("token", response.data.jwt);
+        localStorage.setItem("token", response.data.token);
         setEmail("");
         setPassword("");
       })
@@ -51,7 +51,8 @@ const Login = () => {
               Email address
             </label>
             <input
-              type="email"
+              type="text"
+              value={email}
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
@@ -65,7 +66,8 @@ const Login = () => {
               </label>
                <div className="icon"> 
                <input
-                type={type}
+                type="password"
+                value={password}
                 className="form-control"
                 id="exampleInputPassword1"
                 onChange={(e) => setPassword(e.target.value)}
