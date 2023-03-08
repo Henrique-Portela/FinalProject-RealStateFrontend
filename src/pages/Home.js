@@ -5,6 +5,7 @@ import axios from 'axios'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Link } from 'react-router-dom'
+import Img from "../Img/home.jpg"
 
 const Home = () => {
   const [house, setHouse] = useState([]);
@@ -27,7 +28,7 @@ const Home = () => {
   return (
     <>
       <div className="hero-image">
-        
+        <img src={Img} alt="Home" widht="100%" />
         <p> New Listings in Aledo,TX</p>
         <div className="hero-text">
           <h1> Find it. Tour it. Own it.</h1>
