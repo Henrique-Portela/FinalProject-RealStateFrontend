@@ -4,12 +4,19 @@ import axios from "axios";
 import { Icon } from "react-icons-kit";
 import { eye } from "react-icons-kit/feather/eye";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
+
+import {Toaster} from "react-hot-toast";
+
+
 import { useNavigate } from "react-router-dom";
+
 
 const SignUpPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
 
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
@@ -28,12 +35,15 @@ const SignUpPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+  
 
     const newUser = {
       name,
       email,
       password,
     };
+
+   
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/sign-up`, newUser)

@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "../StyleCss/Login.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Icon } from "react-icons-kit";
 import { eye } from "react-icons-kit/feather/eye";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
+import {Toaster} from "react-hot-toast";
+import AuthContext from "../context/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -12,6 +14,8 @@ const Login = () => {
 
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
+
+   const { setToken} = useContext(AuthContext)
 
   const handleToggle = () => {
     if (type === "password") {
@@ -35,6 +39,7 @@ const Login = () => {
       .post(`${process.env.REACT_APP_API_URL}/login`, newUser)
       .then((response) => {
         localStorage.setItem("token", response.data.token);
+        setToken(response.data.token)
         setEmail("");
         setPassword("");
       })
