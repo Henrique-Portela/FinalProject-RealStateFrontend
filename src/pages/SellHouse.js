@@ -5,7 +5,7 @@ import CurrencyInput from "react-currency-input-field";
 
 const Sell = () => {
   const [form, setForm] = useState({
-    photos:[],
+    photos: [],
     uploading: false,
     address: "",
     city: "",
@@ -26,87 +26,90 @@ const Sell = () => {
     });
   };
 
-  
-
   return (
-    <> 
-    <div className="mb-3 form-control">
-      <div>
-        <AdForm
-          label="Address"
-          type="text"
-          name="addres"
-          onChange={handleChange}
-          value={form.address}
-        />
-        <AdForm
-          label="City"
-          type="text"
-          name="city"
-          onChange={handleChange}
-          value={form.city}
-        />
+    <>
+      <div className="mb-3 form-control">
+        <div>
+          <AdForm
+            label="Street"
+            type="text"
+            name="street"
+            onChange={handleChange}
+            value={form.street}
+          />
+            <AdForm
+            label="Neighborhood"
+            type="text"
+            name="neighborhood"
+            onChange={handleChange}
+            value={form.neighborhood}
+          />
+          <AdForm
+            label="City"
+            type="text"
+            name="city"
+            onChange={handleChange}
+            value={form.city}
+          />
 
-        <AdForm
-          label="State"
-          type="text"
-          name="state"
-          onChange={handleChange}
-          value={form.state}
-        />
-        <AdForm
-          label="Zip"
-          type="text"
-          name="zip"
-          onChange={handleChange}
-          value={form.zip}
-        />
+          <AdForm
+            label="State"
+            type="text"
+            name="state"
+            onChange={handleChange}
+            value={form.state}
+          />
+          <AdForm
+            label="Zip"
+            type="text"
+            name="zip"
+            onChange={handleChange}
+            value={form.zip}
+          />
 
-        <AdForm
-          label="BedRooms"
-          type="text"
-          name="bedrooms"
-          onChange={handleChange}
-          value={form.bedrooms}
-        />
-        <AdForm
-          label="Baths"
-          type="text"
-          name="baths"
-          onChange={handleChange}
-          value={form.baths}
-        />
+          <AdForm
+            label="BedRooms"
+            type="text"
+            name="bedrooms"
+            onChange={handleChange}
+            value={form.bedrooms}
+          />
+          <AdForm
+            label="Baths"
+            type="text"
+            name="baths"
+            onChange={handleChange}
+            value={form.baths}
+          />
 
-        <AdForm
-          label="HouseSize"
-          type="text"
-          name=" houseSize"
-          onChange={handleChange}
-          value={form.houseSize}
-        />
+          <AdForm
+            label="HouseSize"
+            type="text"
+            name=" houseSize"
+            onChange={handleChange}
+            value={form.houseSize}
+          />
 
-        <AdForm
-          label="BuiltYear"
-          type="text"
-          name="baths"
-          onChange={handleChange}
-          value={form.builtYear}
-        />
+          <AdForm
+            label="BuiltYear"
+            type="text"
+            name="baths"
+            onChange={handleChange}
+            value={form.builtYear}
+          />
+
+          <CurrencyInput
+            placeholder="Enter price"
+            value={form.price}
+            type="text"
+            name="price"
+            onChange={handleChange}
+          />
          
-           <CurrencyInput
-          placeholder="Enter price"
-          value={form.price}
-          type="text"
-          name="price"
-          onChange={handleChange}
-          
-        />
-        
+        </div>
       </div>
-    </div>
     </>
   );
 };
 
-
-export default Sell
+export default Sell;
