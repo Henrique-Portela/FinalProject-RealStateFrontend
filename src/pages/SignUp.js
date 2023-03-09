@@ -4,6 +4,7 @@ import axios from "axios";
 import { Icon } from "react-icons-kit";
 import { eye } from "react-icons-kit/feather/eye";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
+import { useNavigate } from "react-router-dom";
 
 const SignUpPage = () => {
   const [name, setName] = useState("");
@@ -12,6 +13,8 @@ const SignUpPage = () => {
 
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
+
+  const navigate = useNavigate();
 
   const handleToggle = () => {
     if (type === "password") {
@@ -41,6 +44,7 @@ const SignUpPage = () => {
           setPassword("");
           alert("User created");
         }
+         navigate("/login")
       })
       .catch((error) => console.log(error));
   };
