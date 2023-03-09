@@ -24,7 +24,9 @@ function HouseDetail() {
 
   
 
-  return <div></div>;
+  return <div>
+    
+  </div>;
 }
 
 export default HouseDetail;

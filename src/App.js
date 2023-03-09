@@ -23,13 +23,14 @@ function App() {
       <AuthProvider>
       <Navbar />
       <Toaster />
+     
 
     
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sellhouse" element={<SellHouse />} />
-        <Route path="/rent" element={<RentHouse />} />
+        <Route path="/renthouse" element={<RentHouse />} />
         <Route path="/service" element={<Service />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/contact" element={<Contact />} />
@@ -42,10 +43,11 @@ function App() {
 
 
       </Routes>
-      <Footer />
+     
       </AuthProvider> 
+      <Footer />
     </div>
-    
+     
   );
 }
 export default App;

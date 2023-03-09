@@ -6,19 +6,19 @@ import Navbar from "react-bootstrap/Navbar";
 function NavBar() {
   
   return (
-    <Navbar bg="light" variant="light">
-      <Container>
-        <Navbar.Brand href="/">Home</Navbar.Brand>
-        <Nav className="me-auto">
+    <nav className="nav d-flex justify-content-between">
+
+          <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/rent">Rent</Nav.Link>
           <Nav.Link href="/sell">Sell</Nav.Link>
           <Nav.Link href="/contact">Contact</Nav.Link>
           <Nav.Link href="/service">Service</Nav.Link>
           <Nav.Link href="/login">Login</Nav.Link>
           <Nav.Link href="/adcreate">AdCreate</Nav.Link>
-        </Nav>
-      </Container>
-    </Navbar>
+
+          
+    
+    </nav>
   );
 }
 

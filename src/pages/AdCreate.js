@@ -10,7 +10,7 @@ const Adcreate = () => {
 
   return (
     <div>
-      <h1 className="display-1 bg-primary text-light p-5">Ad Create</h1>
+      <h1 className=" text-dark p-4 align-items-center">Sell and Rent your home with confidence.</h1>
       <div
         className="d-flex justify-content-center align-items-center vh-100"
         style={{ marginTop: "-12%" }}
