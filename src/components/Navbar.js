@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 function NavBar() {
+  
   return (
     <Navbar bg="light" variant="light">
       <Container>
@@ -14,6 +15,7 @@ function NavBar() {
           <Nav.Link href="/contact">Contact</Nav.Link>
           <Nav.Link href="/service">Service</Nav.Link>
           <Nav.Link href="/login">Login</Nav.Link>
+          <Nav.Link href="/adcreate">AdCreate</Nav.Link>
         </Nav>
       </Container>
     </Navbar>
