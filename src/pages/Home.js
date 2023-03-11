@@ -8,6 +8,25 @@ import Img from '../Img/home.jpeg'
 
 const Home = () => {
   const [house, setHouse] = useState([])
+  const [filteredHouses, setFilteredHouses] = useState([])
+  const [search, setSearch] = useState('')
+
+    const addressSearch = (value) => {
+    setSearch(value);
+    console.log(filteredHouses)
+    if(!value){
+      setFilteredHouses(house)
+      return
+    }
+      const result = filteredHouses.filter((houses) => {
+        return (houses.address.street.toLowerCase().includes(search.toLowerCase())  || 
+                houses.address.neighborhood.toLowerCase().includes(search.toLowerCase()) || 
+                houses.address.city.toLowerCase().includes(search.toLowerCase()) || 
+                houses.address.state.toLowerCase().includes(search.toLowerCase())) 
+      })
+      
+      setFilteredHouses(result)
+  } 
 
   const url = 'http://localhost:3001/viewhouse'
 
@@ -17,6 +36,7 @@ const Home = () => {
         const response = await axios.get(url)
         console.log(response.data)
         setHouse(response.data)
+        setFilteredHouses(response.data)
       } catch (error) {
         console.log(error)
       }
@@ -24,6 +44,7 @@ const Home = () => {
     fetchHouse()
   }, [])
 
+  
   return (
     <>
       <div className="hero-image">
@@ -32,21 +53,25 @@ const Home = () => {
         <div className="hero-text">
           <h1> Find it. Tour it. Own it.</h1>
           <p>“Relationships Built on Trust”</p>
-          <input type="text" name="search" placeholder="Enter an address, neighborhood, city, or ZIP code" />
+          <input  type="text"
+                  value= { search }
+                  onChange= {(e) => addressSearch(e.target.value)}
+                  name="search" 
+                  placeholder="Enter an address, neighborhood, city, or ZIP code" />
         </div>
       </div>
       <Row>
-        {house.map((houseAtual) => {
+        {filteredHouses.map((houseAtual) => {
           return (
             <Col>
-              <Link to={`/housedetails/${houseAtual._id}`}>
+              
                 <HouseCard
                   address={houseAtual.address}
                   sellRent={houseAtual.sellRent}
                   builYear={houseAtual.builYear}
                   picture={houseAtual.picture}
                 />
-              </Link>
+            
             </Col>
           )
         })}

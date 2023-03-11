@@ -12,10 +12,9 @@ function HouseCard(props) {
         </div>
       <ListGroup className="list-group-flush">
         
-        <ListGroup.Item className="list-group-item card">{props.address}</ListGroup.Item>
-        <ListGroup.Item className="list-group-item card">
-          {props.bedRooms}
-        </ListGroup.Item>
+        <ListGroup.Item className="list-group-item card">{props.address.street}</ListGroup.Item>
+        <ListGroup.Item className="list-group-item card">{props.address.neighborhood}</ListGroup.Item>
+        <ListGroup.Item className="list-group-item card">{props.bedRooms}</ListGroup.Item>
         <ListGroup.Item className="list-group-item card">{props.baths}</ListGroup.Item>
       </ListGroup>
       <div className="card-body">
