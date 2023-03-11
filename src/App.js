@@ -1,5 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import {Toaster} from "react-hot-toast";
 import { Routes, Route } from "react-router-dom";
 
