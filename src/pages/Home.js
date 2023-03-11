@@ -11,18 +11,21 @@ const Home = () => {
   const [filteredHouses, setFilteredHouses] = useState([])
   const [search, setSearch] = useState('')
 
-   const addressSearch = (value) => {
-    setSearch(value)
+    const addressSearch = (value) => {
+    setSearch(value);
     console.log(filteredHouses)
-    const result = filteredHouses.filter((house) => {
-    if (house.street.toLowerCase().includes(search.toLowerCase) || 
-       house.neighborhood.toLowerCase().includes(search.toLowerCase) || 
-       house.city.toLowerCase().includes(search.toLowerCase) || 
-       house.state.toLowerCase().includes(search.toLowerCase) || 
-       house.zipCode.toLowerCase().includes(search.toLowerCase)) {
-        
-    } return result
-  })
+    if(!value){
+      setFilteredHouses(house)
+      return
+    }
+      const result = filteredHouses.filter((houses) => {
+        return (houses.address.street.toLowerCase().includes(search.toLowerCase())  || 
+                houses.address.neighborhood.toLowerCase().includes(search.toLowerCase()) || 
+                houses.address.city.toLowerCase().includes(search.toLowerCase()) || 
+                houses.address.state.toLowerCase().includes(search.toLowerCase())) 
+      })
+      
+      setFilteredHouses(result)
   } 
 
   const url = 'http://localhost:3001/viewhouse'
@@ -50,11 +53,11 @@ const Home = () => {
         <div className="hero-text">
           <h1> Find it. Tour it. Own it.</h1>
           <p>“Relationships Built on Trust”</p>
-          <input type="text"
+          <input  type="text"
                   value= { search }
                   onChange= {(e) => addressSearch(e.target.value)}
-                 name="search" 
-                 placeholder="Enter an address, neighborhood, city, or ZIP code" />
+                  name="search" 
+                  placeholder="Enter an address, neighborhood, city, or ZIP code" />
         </div>
       </div>
       <Row>
