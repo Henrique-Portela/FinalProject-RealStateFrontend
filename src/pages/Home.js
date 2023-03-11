@@ -66,10 +66,7 @@ const Home = () => {
             <Col>
               
                 <HouseCard
-                  address={houseAtual.address}
-                  sellRent={houseAtual.sellRent}
-                  builYear={houseAtual.builYear}
-                  picture={houseAtual.picture}
+                  house={houseAtual}
                 />
             
             </Col>
