@@ -4,6 +4,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { useNavigate } from 'react-router';
 
 
+
 function HouseCard( {house} ) {
   
   const navigate = useNavigate();
@@ -24,6 +25,8 @@ function HouseCard( {house} ) {
         <ListGroup.Item className="list-group-item card">Year: {house.builtYear}</ListGroup.Item>
         <ListGroup.Item className="list-group-item card">Size: {house.houseSize}</ListGroup.Item>
         <ListGroup.Item className="list-group-item card">Price $: {house.price}</ListGroup.Item>
+
+
       </ListGroup>
       <div className="card-body">
           <a href="#" className="card-link">Details</a> 

@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import HouseCard from "./components/HouseCard";
 import SellHouse from "./pages/SellHouse";
 import RentHouse from "./pages/RentHouse";
+import BuyHouse from "./pages/BuyHouse";
 import Home from "./pages/Home";
 import Service from "./pages/Service";
 import Contact from "./pages/Contact";
@@ -29,6 +30,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/buyhouse" element={<BuyHouse />} />
         <Route path="/sellhouse" element={<SellHouse />} />
         <Route path="/renthouse" element={<RentHouse />} />
         <Route path="/service" element={<Service />} />
