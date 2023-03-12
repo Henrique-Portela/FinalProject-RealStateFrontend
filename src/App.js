@@ -1,5 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import {Toaster} from "react-hot-toast";
 import { Routes, Route } from "react-router-dom";
 
@@ -10,7 +11,7 @@ import SellHouse from "./pages/SellHouse";
 import RentHouse from "./pages/RentHouse";
 import BuyHouse from "./pages/BuyHouse";
 import Home from "./pages/Home";
-import Service from "./pages/Service";
+
 import Contact from "./pages/Contact";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
@@ -33,7 +34,7 @@ function App() {
         <Route path="/buyhouse" element={<BuyHouse />} />
         <Route path="/sellhouse" element={<SellHouse />} />
         <Route path="/renthouse" element={<RentHouse />} />
-        <Route path="/service" element={<Service />} />
+
         <Route path="/signup" element={<SignUp />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />

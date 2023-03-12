@@ -105,7 +105,8 @@ const Sell = () => {
             name="price"
             onChange={handleChange}
           />
-         
+
+<input type="file" />
         </div>
       </div>
     </>
