@@ -15,32 +15,57 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-weight: bold;
-  
-}
-input {
-  width: 130px;
-  
   
 }
 
-
-input[type=text]:focus {
-  width: 100%;
+.hero-text button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: black;
+  background-color: #ddd;
+  text-align: center;
+  cursor: pointer;
 }
 
-
-
-
-
-
-
+.hero-text button:hover {
+  background-color: blue;
+  color: white;
+}
+.modal-header, h4, .close {
+  background-color: #5cb85c;
+  color:white !important;
+  text-align: center;
+  font-size: 30px;
+}
 
 .img{
   width:100%;
   height:50%
-   
+  
+}
+.fixarRodape {
+  width: 100%;
+  height: 120px;
+  margin-top: 500px;
+  background: rgb(0, 51, 102);
+  position: relative;
+}
+.social {
+  width: 100%;
+  padding-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.copyright {
+  position: relative;
+  bottom: 1px;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
 
 

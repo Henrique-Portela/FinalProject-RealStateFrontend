@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 
 
+
 function HouseCard( {house} ) {
   
   
@@ -22,6 +23,8 @@ function HouseCard( {house} ) {
         <ListGroup.Item className="list-group-item card">Year: {house.builtYear}</ListGroup.Item>
         <ListGroup.Item className="list-group-item card">Size: {house.houseSize}</ListGroup.Item>
         <ListGroup.Item className="list-group-item card">Price $: {house.price}</ListGroup.Item>
+
+
       </ListGroup>
     </Card>
   
