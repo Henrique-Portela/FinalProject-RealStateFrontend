@@ -41,11 +41,10 @@ const SignUpPage = () => {
       name,
       email,
       password,
-    };
+    }
 
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/sign-up`, newUser)
-      .then((response) => {
+    axios.post(`${process.env.REACT_APP_API_URL}/sign-up`, newUser)
+        .then((response) => {
         if (response.status === 201) {
           setName("");
           setEmail("");
