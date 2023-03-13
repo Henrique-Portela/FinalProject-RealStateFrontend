@@ -20,7 +20,7 @@ const Adcreate = () => {
             onClick={() => navigate("/ad/create/sell/house")}
             className="col-7 btn-lg p-5"
           >
-            Sell
+             For Sell
           </button>
         </div>
         <div className="col-lg-6">
@@ -29,7 +29,7 @@ const Adcreate = () => {
             onClick={() => navigate("/ad/create/rent/house")}
             className="col-7 btn-lg p-5"
           >
-            Rent
+             For Rent
           </button>
         </div>
       </div>

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
+import { Link } from "react-router-dom";
+
 
 function HouseDetail(props) {
   const [house, setHouse] = useState({});
@@ -30,16 +32,20 @@ function HouseDetail(props) {
     fetchHouse();
   }, [id]);
 
+
+
    if(!house){
     return <p>loading</p>
    }
+
+   
 
   
     
 
   return(
     <Card style={{ width: "15rem" }}>
-    <Card.Img style={{ height: "19np8.81px" }} variant="top" src={house.picture} />
+    <Card.Img style= {{height: "19np8.81px" }} variant="top" src={house.picture} />
     <div className="card-title">
           <h3>{house.address}</h3>
       </div>
@@ -52,10 +58,12 @@ function HouseDetail(props) {
       <ListGroup.Item className="list-group-item card">Price:{house.price}</ListGroup.Item>
     </ListGroup>
     <div className="card-body">
+    <Link to={`/housedetails/:{id}`} className="card-link">  </Link>
     
  
 </div>
   </Card>
+  
  
     
 

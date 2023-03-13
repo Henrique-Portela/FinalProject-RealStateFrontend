@@ -2,41 +2,51 @@ import React from 'react'
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import { useNavigate } from 'react-router';
+import {IoBedOutline} from 'react-icons/io5';
+import {TbBath} from 'react-icons/tb';
+import {BiArea} from 'react-icons/bi';
+import {MdOutlinePriceCheck} from 'react-icons/md';
+
 
 
 
 function HouseCard( {house} ) {
   
-  const navigate = useNavigate();
+
+  
+  
   
   return (
     <Card style={{ width: "15rem" }}>
-      <Card.Img style={{ height: "19np8.81px" }} variant="top" src={house.picture} />
-
+    
+      <Card.Img style={{ height:"250px", objectFit:"cover" }} variant="top" src={house.picture} />
       <ListGroup className="list-group-flush">
-        
+      <ListGroup.Item className="list-group-item card"><IoBedOutline/>bds: {house.bedRooms}</ListGroup.Item>
+        <ListGroup.Item className="list-group-item card"><TbBath/>ba:{house.baths}</ListGroup.Item>
+        <ListGroup.Item className="list-group-item card"><BiArea/>{house.houseSize}</ListGroup.Item>
+        <ListGroup.Item className="list-group-item card"><MdOutlinePriceCheck/>$ {house.price}</ListGroup.Item>
+        <ListGroup className="list-group-flush">
+        <div className="HouseDetails"> 
         <ListGroup.Item className="list-group-item card">Street: {house.address.street}</ListGroup.Item>
         <ListGroup.Item className="list-group-item card">Neighborhood: {house.address.neighborhood}</ListGroup.Item>
         <ListGroup.Item className="list-group-item card">City: {house.address.city}</ListGroup.Item>
         <ListGroup.Item className="list-group-item card">State: {house.address.state}</ListGroup.Item>
         <ListGroup.Item className="list-group-item card">Zip code: {house.address.zipCode}</ListGroup.Item>
-        <ListGroup.Item className="list-group-item card">Bedrooms: {house.bedRooms}</ListGroup.Item>
-        <ListGroup.Item className="list-group-item card">Baths: {house.baths}</ListGroup.Item>
         <ListGroup.Item className="list-group-item card">Year: {house.builtYear}</ListGroup.Item>
-        <ListGroup.Item className="list-group-item card">Size: {house.houseSize}</ListGroup.Item>
-        <ListGroup.Item className="list-group-item card">Price $: {house.price}</ListGroup.Item>
+        
+        </div>
 
 
       </ListGroup>
-      <div className="card-body">
-          <a href="#" className="card-link">Details</a> 
-      </div>
+       </ListGroup>
+
+
 
     </Card>
   
   )
 }
-
+  
 export default HouseCard
 
 

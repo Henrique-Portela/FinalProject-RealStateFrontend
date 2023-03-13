@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col'
 import { Link } from 'react-router-dom'
 import Img from '../Img/home.jpeg'
 
+
 const Home = () => {
   const [house, setHouse] = useState([])
   const [filteredHouses, setFilteredHouses] = useState([])
@@ -47,6 +48,7 @@ const Home = () => {
   
   return (
     <>
+   
       <div className="hero-image">
         <img className="img" src={Img} alt="Home" widht="100px" height="120%" />
         <p> New Listings in Aledo,TX</p>
@@ -60,6 +62,7 @@ const Home = () => {
                   placeholder="Enter an address, neighborhood, city, or ZIP code" />
         </div>
       </div>
+      
       <Row>
         {filteredHouses.map((houseAtual) => {
           return (
