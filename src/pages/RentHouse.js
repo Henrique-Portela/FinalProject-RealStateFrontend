@@ -17,7 +17,7 @@ const RentHouse = props => {
   const [builtYear, setBuiltYear] = useState('')
   const [houseSize, setHouseSize] = useState('')
   const [price, setPrice] = useState('')
-  const [seelRent, setSeelRent] = useState('')
+  const [sellRent, setSellRent] = useState('')
   const [picture, setPicture] = useState('')
 
   const handleSubmit = e => {
@@ -34,7 +34,7 @@ const RentHouse = props => {
       builtYear,
       houseSize,
       price,
-      seelRent,
+      sellRent,
       picture
     }
 
@@ -75,6 +75,14 @@ const RentHouse = props => {
         <div className="col">
           <h1>Place your ad here </h1>
           <form className="row g-3" onSubmit={handleSubmit}>
+          <div className="col-md-2">
+              <label for="inputseelrent" className="form-label">Seel / Rent</label>
+              <select onChange={(e) => setSellRent(e.target.value)} className="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option selected>Choice Here</option>
+                <option value={sellRent}>Sell</option>
+                <option value={sellRent}>Rent</option>
+              </select>
+            </div>
             <div className="col-md-4">
               <label for="inputStreet" class="form-label">Street</label>
               <input type="text" 
@@ -179,6 +187,9 @@ const RentHouse = props => {
                           />
                 </div>
               </div>
+            </div>
+            <div className="col-auto">
+              <button type="submit" className="btn btn-primary mb-3">Confirm</button>
             </div>
           </form>
         </div>
