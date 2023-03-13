@@ -64,11 +64,13 @@ const Home = () => {
         {filteredHouses.map((houseAtual) => {
           return (
             <Col>
-              
+              <Link to = '/viewhouse/'>
                 <HouseCard
                   house={houseAtual}
                 />
-            
+              </Link>
+
+
             </Col>
           )
         })}
