@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import { Link } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
 
 
 function HouseDetail(props) {
@@ -15,12 +15,12 @@ function HouseDetail(props) {
     'Authorization': 'Bearer ' + token
   
   }
-
+   
   useEffect(() => {
     async function fetchHouse() {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/viewhouse/:id${id}`,{headers}
+          `${process.env.REACT_APP_API_URL}/viewhouse/${id}`,{headers:headers}
         )
         console.log(response)
         setHouse(response.data)
@@ -30,7 +30,7 @@ function HouseDetail(props) {
       }
     }
     fetchHouse();
-  }, [id]);
+  }, [id,headers]);
 
 
 
@@ -58,7 +58,7 @@ function HouseDetail(props) {
       <ListGroup.Item className="list-group-item card">Price:{house.price}</ListGroup.Item>
     </ListGroup>
     <div className="card-body">
-    <Link to={`/housedetails/:{id}`} className="card-link">  </Link>
+    
     
  
 </div>

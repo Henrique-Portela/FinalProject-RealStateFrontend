@@ -67,7 +67,7 @@ const Home = () => {
         {filteredHouses.map((houseAtual) => {
           return (
             <Col>
-              <Link to = '/viewhouse/'>
+              <Link to = {`/housedetails/${houseAtual._id}`}>
                 <HouseCard
                   house={houseAtual}
                 />
