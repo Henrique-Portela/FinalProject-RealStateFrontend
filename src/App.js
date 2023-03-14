@@ -18,6 +18,7 @@ import Login from "./pages/Login";
 import HouseDetail from "./components/HouseDetail";
 import AdCreate from "./pages/AdCreate"
 import AuthProvider from "./context/AuthProvider";
+import IsLogged from "./components/IsLogged.js";
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/housedetails/:id" element={<HouseDetail />} />
-        <Route path="/adcreate" element={<AdCreate />} />
+        <Route path="/adcreate" element={<IsLogged><AdCreate /></IsLogged>} />
         <Route path="/ad/create/sell/house" element={<SellHouse />} />
         <Route path="/ad/create/rent/house" element={<RentHouse />} />
 

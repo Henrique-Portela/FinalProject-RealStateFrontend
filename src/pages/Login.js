@@ -1,12 +1,13 @@
 import { useState, useContext } from 'react'
 import '../StyleCss/Login.css'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Icon } from 'react-icons-kit'
 import { eye } from 'react-icons-kit/feather/eye'
 import { eyeOff } from 'react-icons-kit/feather/eyeOff'
 import { Toaster } from 'react-hot-toast'
 import AuthContext from '../context/AuthContext'
+import swal from 'sweetalert'
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -14,6 +15,8 @@ const Login = () => {
 
   const [type, setType] = useState('password')
   const [icon, setIcon] = useState(eyeOff)
+
+  const navigate = useNavigate()
 
   const { setToken } = useContext(AuthContext)
 
@@ -42,6 +45,12 @@ const Login = () => {
         setToken(response.data.token)
         setEmail('')
         setPassword('')
+        swal({
+          title: "You are Logged in",
+          icon: "success",
+          button: "OK",
+        });
+        navigate("/");
       })
       .catch((error) => console.log(error))
   }
