@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
+import AuthContext from "../context/AuthContext";
+
 
 function HouseDetail(props) {
   const [house, setHouse] = useState({});
@@ -13,12 +15,12 @@ function HouseDetail(props) {
     'Authorization': 'Bearer ' + token
   
   }
-
+   
   useEffect(() => {
     async function fetchHouse() {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/viewhouse/:id${id}`,{headers}
+          `${process.env.REACT_APP_API_URL}/viewhouse/${id}`,{headers:headers}
         )
         console.log(response)
         setHouse(response.data)
@@ -28,18 +30,22 @@ function HouseDetail(props) {
       }
     }
     fetchHouse();
-  }, [id]);
+  }, [id,headers]);
+
+
 
    if(!house){
     return <p>loading</p>
    }
+
+   
 
   
     
 
   return(
     <Card style={{ width: "15rem" }}>
-    <Card.Img style={{ height: "19np8.81px" }} variant="top" src={house.picture} />
+    <Card.Img style= {{height: "19np8.81px" }} variant="top" src={house.picture} />
     <div className="card-title">
           <h3>{house.address}</h3>
       </div>
@@ -53,9 +59,11 @@ function HouseDetail(props) {
     </ListGroup>
     <div className="card-body">
     
+    
  
 </div>
   </Card>
+  
  
     
 
