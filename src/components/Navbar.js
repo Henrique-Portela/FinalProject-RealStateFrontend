@@ -8,9 +8,9 @@ function NavBar() {
     <nav className="nav flex space-x-10">
 
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/buy">Buy</Nav.Link>
-          <Nav.Link href="/rent">Rent</Nav.Link>
-          <Nav.Link href="/sell">Sell</Nav.Link>
+          <Nav.Link href="/buyhouse">Buy</Nav.Link>
+          <Nav.Link href="/renthouse">Rent</Nav.Link>
+          
         
          
           <Nav.Link href="/login">Login</Nav.Link>

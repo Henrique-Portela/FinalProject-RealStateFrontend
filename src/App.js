@@ -11,6 +11,7 @@ import SellHouse from './pages/SellHouse'
 import RentHouse from './pages/RentHouse'
 import BuyHouse from './pages/BuyHouse'
 import Home from './pages/Home'
+import Rent from './pages/Rent'
 
 import Contact from './pages/Contact'
 import SignUp from './pages/SignUp'
@@ -20,6 +21,7 @@ import AdCreate from './pages/AdCreate'
 import AuthProvider from './context/AuthProvider'
 import IsLogged from './components/IsLogged.js'
 import ManageItensPage from './pages/ManageItensPage'
+import UpdateHousePage from './pages/UpdateHousePage'
 
 function App() {
   return (
@@ -32,23 +34,17 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/buyhouse" element={<BuyHouse />} />
           <Route path="/sellhouse" element={<SellHouse />} />
-          <Route path="/renthouse" element={<RentHouse />} />
+          <Route path="/renthouse" element={<Rent />} />
 
           <Route path="/signup" element={<SignUp />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/housedetails/:id" element={<HouseDetail />} />
-          <Route
-            path="/adcreate"
-            element={
-              <IsLogged>
-                <AdCreate />
-              </IsLogged>
-            }
-          />
+          <Route path="/adcreate" element={<IsLogged><AdCreate /></IsLogged>}/>
           <Route path="/ad/create/sell/house" element={<SellHouse />} />
           <Route path="/ad/create/rent/house" element={<RentHouse />} />
           <Route path="/manageitens" element={<ManageItensPage />} />
+          <Route path="/updatehouse/:id" element={<UpdateHousePage />} />
         </Routes>
       </AuthProvider>
       <Footer />

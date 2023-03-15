@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useParams } from "react-router-dom";
-import HouseCard from "../components/HouseCard";
+import HouseManageCard from "../components/HouseManageCard";
 import { Link } from "react-router-dom";
+import swal from 'sweetalert'
 
 const ManageItensPage = props => {
-    const [house, setHouse] = useState(null)
+    const [house, setHouse] = useState([])
     const [refresh, setRefresh] = useState(false)
 
     const { id } = useParams()
@@ -15,7 +16,7 @@ const ManageItensPage = props => {
     const headers = {
       'Authorization': 'Bearer ' + token
     }
-    console.log(house)
+    
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/viewhouse/userhouses`, {headers})
             .then(response => {
@@ -28,6 +29,11 @@ const ManageItensPage = props => {
         axios.delete(`${process.env.REACT_APP_API_URL}/delete/${id}`, {headers})
             .then(response => {
                 setRefresh(!refresh)
+                swal({
+                    title: "Ad Deleted",
+                    icon: "success",
+                    button: "OK",
+                  });
             })
             .catch(err => console.log(err))
     }
@@ -44,9 +50,9 @@ const ManageItensPage = props => {
                 {house.length > 0 && house.map(house => {
                     return (
                     <div className="col" key={house._id}>
-                        <HouseCard house={house}/>
+                        <HouseManageCard house={house}/>
                         <div className="butons">
-                            <Link type="button" className="btn btn-info btn-sm" to={`/updatehouse`}>Update</Link>
+                            <Link type="button" className="btn btn-info btn-sm" to={`/updatehouse/${house._id}`}>Update</Link>
                             <button  className="btn btn-danger btn-sm" onClick={() => deleteHouse(house._id)}>Delete</button>
                         </div>
                     </div>
