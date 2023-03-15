@@ -71,6 +71,8 @@ const UpdateHouse = (props) => {
         picture
     }
 
+
+    
     axios.put(`${process.env.REACT_APP_API_URL}/updatehouse/${id}`, {headers}, updateHouse)
         .then((response) => {
             swal({

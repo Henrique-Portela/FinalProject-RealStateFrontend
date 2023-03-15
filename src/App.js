@@ -11,6 +11,7 @@ import SellHouse from './pages/SellHouse'
 import RentHouse from './pages/RentHouse'
 import BuyHouse from './pages/BuyHouse'
 import Home from './pages/Home'
+import Rent from './pages/Rent'
 
 import Contact from './pages/Contact'
 import SignUp from './pages/SignUp'
@@ -33,7 +34,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/buyhouse" element={<BuyHouse />} />
           <Route path="/sellhouse" element={<SellHouse />} />
-          <Route path="/renthouse" element={<RentHouse />} />
+          <Route path="/renthouse" element={<Rent />} />
 
           <Route path="/signup" element={<SignUp />} />
           <Route path="/contact" element={<Contact />} />
