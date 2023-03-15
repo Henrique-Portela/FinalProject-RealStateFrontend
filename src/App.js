@@ -19,6 +19,7 @@ import HouseDetail from "./components/HouseDetail";
 import AdCreate from "./pages/AdCreate"
 import AuthProvider from "./context/AuthProvider";
 import IsLogged from "./components/IsLogged.js";
+import ManageItensPage from "./pages/ManageItensPage";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/adcreate" element={<IsLogged><AdCreate /></IsLogged>} />
         <Route path="/ad/create/sell/house" element={<SellHouse />} />
         <Route path="/ad/create/rent/house" element={<RentHouse />} />
+        <Route path="/manageitens" element={<ManageItensPage />} />
 
 
 
