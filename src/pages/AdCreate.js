@@ -63,7 +63,7 @@ const AdCreatePage = props => {
 
   const handleUpload = e => {
     const uploadData = new FormData()
-    uploadData.append('housePicture', e.target.files[0]) 
+    uploadData.append('housePicture', e.target.files) 
     axios.post('http://localhost:3001/houses/uploadImages', uploadData)
         .then(response => {
           setPicture(response.data.url)
