@@ -15,6 +15,7 @@ function NavBar() {
          
           <Nav.Link href="/login">Login</Nav.Link>
           <Nav.Link href="/adcreate">AdCreate</Nav.Link>
+          
 
           
     

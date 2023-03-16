@@ -26,6 +26,12 @@ const AdCreatePage = props => {
 
   const navigate = useNavigate();
 
+  const token = localStorage.getItem('token')
+
+    const headers = {
+      'Authorization': 'Bearer ' + token
+    }
+  
   const handleSubmit = e => {
     e.preventDefault()
 
@@ -39,12 +45,8 @@ const AdCreatePage = props => {
       sellRent,
       picture
     }
-
-    const token = localStorage.getItem('token')
-
-    const headers = {
-      'Authorization': 'Bearer ' + token
-    }
+    console.log(newHouse)
+    
     
 
     axios.post('http://localhost:3001/house', newHouse, {headers})
@@ -63,10 +65,16 @@ const AdCreatePage = props => {
 
   const handleUpload = e => {
     const uploadData = new FormData()
-    uploadData.append('housePicture', e.target.files) 
-    axios.post('http://localhost:3001/houses/uploadImages', uploadData)
+    
+    for(let i = 0; i < e.target.files.length; i++) {
+      uploadData.append('housePicture', e.target.files[i]) 
+
+    }
+    
+   axios.post('http://localhost:3001/houses/uploadImages', uploadData, {headers})
         .then(response => {
           setPicture(response.data.url)
+          
         })
         .catch(err => console.log(err))
   }
