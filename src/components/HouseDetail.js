@@ -7,8 +7,9 @@ import AuthContext from "../context/AuthContext";
 
 
 function HouseDetail(props) {
-  const [house, setHouse] = useState({});
+  const [house, setHouse] = useState();
   const { id } = useParams();
+ 
  
   const token = localStorage.getItem('token')
   const headers = {
@@ -20,7 +21,7 @@ function HouseDetail(props) {
     async function fetchHouse() {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/viewhouse/${id}`,{headers:headers}
+          `${process.env.REACT_APP_API_URL}/viewhouse/${id}`,{headers}
         )
         console.log(response)
         setHouse(response.data)
@@ -30,7 +31,7 @@ function HouseDetail(props) {
       }
     }
     fetchHouse();
-  }, [id,headers]);
+  }, [id]);
 
 
 
@@ -47,7 +48,7 @@ function HouseDetail(props) {
     <Card style={{ width: "15rem" }}>
     <Card.Img style= {{height: "19np8.81px" }} variant="top" src={house.picture} />
     <div className="card-title">
-          <h3>{house.address}</h3>
+          <h3>{house.address.street}</h3>
       </div>
     <ListGroup className="list-group-flush">
       

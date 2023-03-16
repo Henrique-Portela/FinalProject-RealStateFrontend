@@ -13,22 +13,22 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const [type, setType] = useState('password')
-  const [icon, setIcon] = useState(eyeOff)
+  const [type, setType] = useState("password");
+  const [icon, setIcon] = useState(eyeOff);
 
   const navigate = useNavigate()
 
   const { setToken } = useContext(AuthContext)
 
   const handleToggle = () => {
-    if (type === 'password') {
-      setIcon(eye)
-      setType('text')
+    if (type === "password") {
+      setIcon(eye);
+      setType("text");
     } else {
-      setIcon(eyeOff)
-      setType('password')
+      setIcon(eyeOff);
+      setType("password");
     }
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -57,6 +57,7 @@ const Login = () => {
 
   return (
     <>
+    <div id="JanelaModal" className="modal"></div>
       <div className="myform bg-light w-25 rounded-2 position-absolute top-50 start-50 translate-middle">
         <h1 className="text-center">Login Form</h1>
         <form onSubmit={handleSubmit}>
@@ -73,6 +74,7 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
+          
           <div className="wrapper">
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">
@@ -86,9 +88,10 @@ const Login = () => {
                   id="exampleInputPassword1"
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <span className="iconEyes" onClick={handleToggle}>
+                  <span className="iconEyes" onClick={handleToggle}>
                   <Icon icon={icon} size={25} />
                 </span>
+              
               </div>
             </div>
           </div>

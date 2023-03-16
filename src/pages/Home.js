@@ -1,85 +1,95 @@
-import React, { useEffect, useState } from 'react'
-import HouseCard from '../components/HouseCard'
-import axios from 'axios'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import { Link } from 'react-router-dom'
-import Img from '../Img/home.jpeg'
-
+import React, { useEffect, useState } from "react";
+import HouseCard from "../components/HouseCard";
+import axios from "axios";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
+import Img from "../Img/home.jpeg";
 
 const Home = () => {
-  const [house, setHouse] = useState([])
-  const [filteredHouses, setFilteredHouses] = useState([])
-  const [search, setSearch] = useState('')
+  const [house, setHouse] = useState([]);
+  const [filteredHouses, setFilteredHouses] = useState([]);
+  const [search, setSearch] = useState("");
 
-    const addressSearch = (value) => {
+  const addressSearch = (value) => {
     setSearch(value);
-    console.log(filteredHouses)
-    if(!value){
-      setFilteredHouses(house)
-      return
+    console.log(filteredHouses);
+    if (!value) {
+      setFilteredHouses(house);
+      return;
     }
-      const result = filteredHouses.filter((houses) => {
-        return (houses.address.street.toLowerCase().includes(search.toLowerCase())  || 
-                houses.address.neighborhood.toLowerCase().includes(search.toLowerCase()) || 
-                houses.address.city.toLowerCase().includes(search.toLowerCase()) || 
-                houses.address.state.toLowerCase().includes(search.toLowerCase())) 
-      })
-      
-      setFilteredHouses(result)
-  } 
+    const result = filteredHouses.filter((houses) => {
+      return (
+        houses.address.street.toLowerCase().includes(search.toLowerCase()) ||
+        houses.address.neighborhood
+          .toLowerCase()
+          .includes(search.toLowerCase()) ||
+        houses.address.city.toLowerCase().includes(search.toLowerCase()) ||
+        houses.address.state.toLowerCase().includes(search.toLowerCase())
+      );
+    });
 
-  const url = 'http://localhost:3001/viewhouse'
+    setFilteredHouses(result);
+  };
+
+  const url = "http://localhost:3001/viewhouse";
 
   useEffect(() => {
     async function fetchHouse() {
       try {
-        const response = await axios.get(url)
-        console.log(response.data)
-        setHouse(response.data)
-        setFilteredHouses(response.data)
+        const response = await axios.get(url);
+        console.log(response.data);
+        setHouse(response.data);
+        setFilteredHouses(response.data);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     }
-    fetchHouse()
-  }, [])
+    fetchHouse();
+  }, []);
 
-  
   return (
     <>
-   
       <div className="hero-image">
-        <img className="img" src={Img} alt="Home" widht="100px" height="120%" />
+        <img className="img" src={Img} alt="Home" />
         <p> New Listings in Aledo,TX</p>
         <div className="hero-text">
           <h1> Find it. Tour it. Own it.</h1>
           <p>“Relationships Built on Trust”</p>
-          <input  type="text"
-                  value= { search }
-                  onChange= {(e) => addressSearch(e.target.value)}
-                  name="search" 
-                  placeholder="Enter an address, neighborhood, city, or ZIP code" />
+          <div class="input-group">
+            <div class="form-outline">
+              <div class="form-outline">
+                <input
+                  type="text"
+                  value={search}
+                onChange={(e) => addressSearch(e.target.value)}
+                placeholder="Enter an address, neighborhood, city and state"
+                  id="form1"
+                  className="form-control-nav"
+                  
+            
+                  aria-label="Search"
+                />
+              </div>
+             
+            </div>
+          </div>
         </div>
       </div>
-      
+
       <Row>
         {filteredHouses.map((houseAtual) => {
           return (
             <Col>
-              <Link to = {`/housedetails/${houseAtual._id}`}>
-                <HouseCard
-                  house={houseAtual}
-                />
+              <Link to={`/housedetails/${houseAtual._id}`}>
+                <HouseCard house={houseAtual} />
               </Link>
-
-
             </Col>
-          )
+          );
         })}
       </Row>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
