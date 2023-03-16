@@ -35,6 +35,8 @@ const UpdateHouse = (props) => {
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/viewhouse/userhouses/${id}`, {headers})
         .then(response => {
+
+          delete response.data._id
             let {
                 address,
                 bedRooms,
@@ -45,6 +47,9 @@ const UpdateHouse = (props) => {
                 sellRent,
                 picture
             } = response.data
+
+          
+
             setAddress(address)
             setBedrooms(bedRooms)
             setBaths(baths)
@@ -73,15 +78,15 @@ const UpdateHouse = (props) => {
 
 
     
-    axios.put(`${process.env.REACT_APP_API_URL}/updatehouse/${id}`, {headers}, updateHouse)
-        .then((response) => {
+    axios.put(`${process.env.REACT_APP_API_URL}/updatehouse/${id}`, updateHouse, {headers})
+        .then(() => {
             swal({
                 title: "House Updated",
                 icon: "success",
                 button: "OK",
               })
         })
-        .then((response) => {
+        .then(() => {
             navigate("/manageitens")
         })
         .catch((err) => console.log(err))

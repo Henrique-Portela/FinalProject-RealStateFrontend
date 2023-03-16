@@ -1,7 +1,6 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import { Toaster } from 'react-hot-toast'
 import { Routes, Route } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
@@ -23,19 +22,19 @@ import IsLogged from './components/IsLogged.js'
 import ManageItensPage from './pages/ManageItensPage'
 import UpdateHousePage from './pages/UpdateHousePage'
 
+
 function App() {
   return (
     <div>
       <AuthProvider>
         <Navbar />
-        <Toaster />
+       
 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/buyhouse" element={<BuyHouse />} />
           <Route path="/sellhouse" element={<SellHouse />} />
           <Route path="/renthouse" element={<Rent />} />
-
           <Route path="/signup" element={<SignUp />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />

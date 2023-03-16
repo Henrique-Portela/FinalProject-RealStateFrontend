@@ -3,73 +3,68 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import AuthContext from "../context/AuthContext";
 
 
 function HouseDetail(props) {
-  const [house, setHouse] = useState({});
+  const [house, setHouse] = useState();
   const { id } = useParams();
- 
-  const token = localStorage.getItem('token')
+
+  const token = localStorage.getItem("token");
   const headers = {
-    'Authorization': 'Bearer ' + token
-  
-  }
-   
+    Authorization: "Bearer " + token,
+  };
+
   useEffect(() => {
     async function fetchHouse() {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/viewhouse/${id}`,{headers:headers}
-        )
-        console.log(response)
-        setHouse(response.data)
-
+          `${process.env.REACT_APP_API_URL}/viewhouse/${id}`,
+          { headers }
+        );
+        console.log(response);
+        setHouse(response.data);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     }
     fetchHouse();
-  }, [id,headers]);
+  }, [id]);
 
+  if (!house) {
+    return <p>loading</p>;
+  }
 
-
-   if(!house){
-    return <p>loading</p>
-   }
-
-   
-
-  
-    
-
-  return(
+  return (
     <Card style={{ width: "15rem" }}>
-    <Card.Img style= {{height: "19np8.81px" }} variant="top" src={house.picture} />
-    <div className="card-title">
-          <h3>{house.address}</h3>
+      <Card.Img
+        style={{ height: "19np8.81px" }}
+        variant="top"
+        src={house.picture}
+      />
+      <div className="card-title">
+        <h3>{house.address.street}</h3>
       </div>
-    <ListGroup className="list-group-flush">
+      <ListGroup className="list-group-flush">
+        <ListGroup.Item className="list-group-item card">
+          {house.houseSize}
+        </ListGroup.Item>
+        <ListGroup.Item className="list-group-item card">
+          BedRooms: {house.bedRooms}
+        </ListGroup.Item>
+        <ListGroup.Item className="list-group-item card">
+          Baths:{house.baths}
+        </ListGroup.Item>
+        <ListGroup.Item className="list-group-item card">
+          HouseSize:{house.houseSize}
+        </ListGroup.Item>
+        <ListGroup.Item className="list-group-item card">
+          Price:{house.price}
+        </ListGroup.Item>
+      </ListGroup>
+      <div className="card-body"></div>
       
-      <ListGroup.Item className="list-group-item card">{house.houseSize}</ListGroup.Item>
-      <ListGroup.Item className="list-group-item card">BedRooms: {house.bedRooms}</ListGroup.Item>
-      <ListGroup.Item className="list-group-item card">Baths:{house.baths}</ListGroup.Item>
-      <ListGroup.Item className="list-group-item card">HouseSize:{house.houseSize}</ListGroup.Item>
-      <ListGroup.Item className="list-group-item card">Price:{house.price}</ListGroup.Item>
-    </ListGroup>
-    <div className="card-body">
-    
-    
- 
-</div>
-  </Card>
-  
- 
-    
-
-  )
-  
-};
-
+    </Card>
+  );
+}
 
 export default HouseDetail;

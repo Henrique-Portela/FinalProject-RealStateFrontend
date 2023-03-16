@@ -9,7 +9,7 @@ const ManageItensPage = props => {
     const [house, setHouse] = useState([])
     const [refresh, setRefresh] = useState(false)
 
-    const { id } = useParams()
+    //const { id } = useParams()
 
     const token = localStorage.getItem('token')
 
@@ -41,12 +41,13 @@ const ManageItensPage = props => {
     if(!house) {
         return <p> No house found</p>
     }
-
+  
     return (
         <>
         <div className="container">
             <h1> Update or Delete your Ad Here</h1>
             <div className="row">
+                
                 {house.length > 0 && house.map(house => {
                     return (
                     <div className="col" key={house._id}>
