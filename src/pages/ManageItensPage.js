@@ -9,7 +9,7 @@ const ManageItensPage = props => {
     const [house, setHouse] = useState([])
     const [refresh, setRefresh] = useState(false)
 
-    const { id } = useParams()
+    //const { id } = useParams()
 
     const token = localStorage.getItem('token')
 

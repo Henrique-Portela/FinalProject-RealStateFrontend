@@ -81,14 +81,15 @@ const Login = () => {
                 Password
               </label>
               <div className="icon">
-                <input
-                  type="password"
+              <input
+                  type={type}
                   value={password}
                   className="form-control"
                   id="exampleInputPassword1"
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                  <span className="iconEyes" onClick={handleToggle}>
+
+                <span className="iconEyes" onClick={handleToggle}>
                   <Icon icon={icon} size={25} />
                 </span>
               
