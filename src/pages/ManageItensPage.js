@@ -41,12 +41,13 @@ const ManageItensPage = props => {
     if(!house) {
         return <p> No house found</p>
     }
-
+  
     return (
         <>
         <div className="container">
             <h1> Update or Delete your Ad Here</h1>
             <div className="row">
+                
                 {house.length > 0 && house.map(house => {
                     return (
                     <div className="col" key={house._id}>

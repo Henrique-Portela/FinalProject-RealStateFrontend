@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import CurrencyInput from "react-currency-input-field";
 import swal from "sweetalert";
 
 const AdCreatePage = (props) => {
@@ -26,15 +25,15 @@ const AdCreatePage = (props) => {
   const [houseSize, setHouseSize] = useState("");
   const [price, setPrice] = useState();
   const [sellRent, setSellRent] = useState("");
-  const [picture, setPicture] = useState("");
-
-
-  function formatNumber(n) {
-    // format number 1000000 to 1,234,567
-    return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-  }
+  const [picture, setPicture] = useState([]);
 
   const navigate = useNavigate();
+
+  const token = localStorage.getItem("token");
+
+  const headers = {
+    Authorization: "Bearer " + token,
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,12 +48,7 @@ const AdCreatePage = (props) => {
       sellRent,
       picture,
     };
-
-    const token = localStorage.getItem("token");
-
-    const headers = {
-      Authorization: "Bearer " + token,
-    };
+    console.log(newHouse);
 
     axios
       .post("http://localhost:3001/house", newHouse, { headers })
@@ -69,13 +63,26 @@ const AdCreatePage = (props) => {
       })
       .catch((err) => console.log(err));
   };
+  
 
   const handleUpload = (e) => {
+   
     const uploadData = new FormData();
-    uploadData.append("housePicture", e.target.files);
+  
+   
+    for (let i = 0; i < e.target.files.length; i++) {
+     uploadData.append("housePicture", e.target.files[i]);
+    }
+
+    //uploadData.append("housePicture", e.target.files[0]);
+
+
     axios
-      .post("http://localhost:3001/houses/uploadImages", uploadData)
+      .post("http://localhost:3001/uploadImages", uploadData, {
+        headers,
+      })
       .then((response) => {
+        console.log(response)
         setPicture(response.data.url);
       })
       .catch((err) => console.log(err));
@@ -85,11 +92,11 @@ const AdCreatePage = (props) => {
     <div className="createHouse">
       <div className="row">
         <div className="col">
-          <h1 className="textAd"> You are nearly finished.Please complete the form. </h1>
+          <h1>Place your ad here </h1>
           <form className="row g-3" onSubmit={handleSubmit}>
             <div className="col-md-2">
               <label for="inputseelrent" className="form-label">
-              Sell / Rent
+                Seel / Rent
               </label>
               <select
                 onChange={(e) => setSellRent(e.target.value)}

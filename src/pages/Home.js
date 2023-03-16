@@ -55,7 +55,7 @@ const Home = () => {
         <p> New Listings in Aledo,TX</p>
         <div className="hero-text">
           <h1> Find it. Tour it. Own it.</h1>
-          <p>“Relationships Built on Trust”</p>
+         
           <div class="input-group">
             <div class="form-outline">
               <div class="form-outline">

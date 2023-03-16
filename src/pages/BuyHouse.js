@@ -4,7 +4,7 @@ import axios from 'axios'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Link } from 'react-router-dom'
-import Img from '../Img/buyphoto.jpeg'
+import Img from '../Img/buypic.jpeg'
 
 
 const BuyHouse = () => {
@@ -48,15 +48,30 @@ const BuyHouse = () => {
   
   return (
     <>
-   
       <div className="hero-image-buy">
-        <img className="img-buy-house" src={Img} />
-        <p> Real Estate & Homes For Sale
-        </p>
+        <img className="img" src={Img} alt="Home" />
+        <p> New Listings in Aledo,TX</p>
         <div className="hero-text-buy">
-          <h1> Discover your perfect home®</h1>
-          <p>“With the most complete source of homes for sale & real estate near you”</p>
-      
+          <h1>Discover your perfect home®</h1>
+          
+          <div class="input-group">
+            <div class="form-outline">
+              <div class="form-outline">
+                <input
+                  type="text"
+                  value={search}
+                onChange={(e) => addressSearch(e.target.value)}
+                placeholder="Enter an address, neighborhood, city and state"
+                  id="form1"
+                  className="form-control-nav"
+                  
+            
+                  aria-label="Search"
+                />
+              </div>
+             
+            </div>
+          </div>
         </div>
       </div>
       
