@@ -21,9 +21,7 @@ const Home = () => {
     const result = filteredHouses.filter((houses) => {
       return (
         houses.address.street.toLowerCase().includes(search.toLowerCase()) ||
-        houses.address.neighborhood
-          .toLowerCase()
-          .includes(search.toLowerCase()) ||
+        houses.address.neighborhood.toLowerCase().includes(search.toLowerCase()) ||
         houses.address.city.toLowerCase().includes(search.toLowerCase()) ||
         houses.address.state.toLowerCase().includes(search.toLowerCase())
       );
@@ -63,7 +61,7 @@ const Home = () => {
                   type="text"
                   value={search}
                 onChange={(e) => addressSearch(e.target.value)}
-                placeholder="Enter an address, neighborhood, city and state"
+                placeholder="Enter an address, neighborhood, city or state"
                   id="form1"
                   className="form-control-nav"
                   

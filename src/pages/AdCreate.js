@@ -35,6 +35,8 @@ const AdCreatePage = (props) => {
     Authorization: "Bearer " + token,
   };
 
+  
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -74,16 +76,10 @@ const AdCreatePage = (props) => {
      uploadData.append("housePicture", e.target.files[i]);
     }
 
-    //uploadData.append("housePicture", e.target.files[0]);
-
-
-    axios
-      .post("http://localhost:3001/uploadImages", uploadData, {
-        headers,
-      })
+    axios.post("http://localhost:3001/houses/uploadImages", uploadData, {headers})
       .then((response) => {
         console.log(response)
-        setPicture(response.data.url);
+        setPicture(response.data.urls);
       })
       .catch((err) => console.log(err));
   };

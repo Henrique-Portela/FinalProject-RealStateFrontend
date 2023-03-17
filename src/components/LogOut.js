@@ -1,7 +1,7 @@
 import Nav from "react-bootstrap/Nav";
 
    const LogOut = () => {
-   const removeToken = () => localStorage.removeItem('token')
+      const removeToken = () => localStorage.removeItem('token')
 
    return (
     

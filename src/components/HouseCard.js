@@ -19,7 +19,7 @@ function HouseCard( {house} ) {
   return (
     <Card style={{ width: "15rem" }}>
     
-      <Card.Img style={{ height:"250px", objectFit:"cover" }} variant="top" src={house.picture} />
+      <Card.Img style={{ height:"250px", objectFit:"cover" }} variant="top" src={house.picture[1]} />
       <ListGroup className="list-group-flush">
       <ListGroup.Item className="list-group-item card"><IoBedOutline/>bds: {house.bedRooms}</ListGroup.Item>
         <ListGroup.Item className="list-group-item card"><TbBath/>ba:{house.baths}</ListGroup.Item>
@@ -32,16 +32,9 @@ function HouseCard( {house} ) {
         <ListGroup.Item className="list-group-item card">City: {house.address.city}</ListGroup.Item>
         <ListGroup.Item className="list-group-item card">State: {house.address.state}</ListGroup.Item>
         <ListGroup.Item className="list-group-item card">Zip code: {house.address.zipCode}</ListGroup.Item>
-        <ListGroup.Item className="list-group-item card">Year: {house.builtYear}</ListGroup.Item>
-        
-      
-
-
+        <ListGroup.Item className="list-group-item card">Year: {house.builtYear}</ListGroup.Item>  
       </ListGroup>
        </ListGroup>
-
-
-
     </Card>
   
   )
