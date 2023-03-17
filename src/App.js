@@ -28,8 +28,6 @@ function App() {
     <div>
       <AuthProvider>
         <Navbar />
-       
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/buyhouse" element={<BuyHouse />} />

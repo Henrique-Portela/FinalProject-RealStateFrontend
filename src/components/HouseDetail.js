@@ -5,23 +5,21 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 
 
-function HouseDetail(props) {
+function HouseDetail() {
   const [house, setHouse] = useState();
   const { id } = useParams();
 
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
+  
   const headers = {
-    Authorization: "Bearer " + token,
+    'Authorization': 'Bearer ' + token,
   };
 
   useEffect(() => {
     async function fetchHouse() {
       try {
-        const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/viewhouse/${id}`,
-          { headers }
-        );
-        console.log(response);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/viewhouse/${id}`, { headers });
+        console.log(response.data);
         setHouse(response.data);
       } catch (error) {
         console.log(error);
