@@ -21,6 +21,7 @@ import AuthProvider from './context/AuthProvider'
 import IsLogged from './components/IsLogged.js'
 import ManageItensPage from './pages/ManageItensPage'
 import UpdateHousePage from './pages/UpdateHousePage'
+import AgentCreatePage from './pages/AgentCreatePage'
 
 
 function App() {
@@ -40,8 +41,9 @@ function App() {
           <Route path="/adcreate" element={<IsLogged><AdCreate /></IsLogged>}/>
           <Route path="/ad/create/sell/house" element={<SellHouse />} />
           <Route path="/ad/create/rent/house" element={<RentHouse />} />
-          <Route path="/manageitens" element={<ManageItensPage />} />
-          <Route path="/updatehouse/:id" element={<UpdateHousePage />} />
+          <Route path="/manageitens" element={<IsLogged><ManageItensPage /></IsLogged>} />
+          <Route path="/updatehouse/:id" element={<IsLogged><UpdateHousePage /></IsLogged>} />
+          <Route path="/createagent" element={<IsLogged><AgentCreatePage /></IsLogged>} />
         </Routes>
       </AuthProvider>
       <Footer />
