@@ -23,6 +23,7 @@ function NavBar() {
       <Nav.Link href="/buyhouse">Buy</Nav.Link>
       <Nav.Link href="/renthouse">Rent</Nav.Link>
       <Nav.Link href="/adcreate">Advertise</Nav.Link>
+      <Nav.Link href="/agents">Agent Finder</Nav.Link>
        { token ? <Nav.Link href="/manageitens">Manageitens</Nav.Link> : null }
       
       <div className="login-button">

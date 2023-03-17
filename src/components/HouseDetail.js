@@ -37,7 +37,7 @@ function HouseDetail() {
       <Card.Img
         style={{ height: "19np8.81px" }}
         variant="top"
-        src={house.picture}
+        src={house.picture[0]}
       />
       <div className="card-title">
         <h3>{house.address.street}</h3>
