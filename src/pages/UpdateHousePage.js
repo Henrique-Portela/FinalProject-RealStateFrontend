@@ -48,8 +48,6 @@ const UpdateHouse = (props) => {
                 picture
             } = response.data
 
-          
-
             setAddress(address)
             setBedrooms(bedRooms)
             setBaths(baths)
@@ -98,7 +96,7 @@ const UpdateHouse = (props) => {
     uploadData.append('housePicture', e.target.files) 
     axios.post('http://localhost:3001/houses/uploadImages', uploadData)
         .then(response => {
-          setPicture(response.data.url)
+          setPicture(response.data.urls)
         })
         .catch(err => console.log(err))
   }

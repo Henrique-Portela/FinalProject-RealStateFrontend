@@ -37,6 +37,32 @@ function HouseDetail() {
   }
   console.log(house);
   return (
+
+    <Card style={{ width: "15rem" }}>
+      <Card.Img
+        style={{ height: "19np8.81px" }}
+        variant="top"
+        src={house.picture[0]}
+      />
+      <div className="card-title">
+        <h3>{house.address.street}</h3>
+      </div>
+      <ListGroup className="list-group-flush">
+        <ListGroup.Item className="list-group-item card">
+          {house.houseSize}
+        </ListGroup.Item>
+        <ListGroup.Item className="list-group-item card">
+          BedRooms: {house.bedRooms}
+        </ListGroup.Item>
+        <ListGroup.Item className="list-group-item card">
+          Baths:{house.baths}
+        </ListGroup.Item>
+        <ListGroup.Item className="list-group-item card">
+          HouseSize:{house.houseSize}
+        </ListGroup.Item>
+        <ListGroup.Item className="list-group-item card">
+          Price:{house.price}
+=======
     <div className="cardDetail">
       <Card className="card">
         <Carousel
@@ -68,6 +94,7 @@ function HouseDetail() {
         </div>
         <ListGroup>
         <ListGroup.Item>BedRooms: {house.bedRooms}
+
         </ListGroup.Item>
         <ListGroup.Item>Baths:{house.baths}</ListGroup.Item>
          <ListGroup.Item>Address: {house.address.street}</ListGroup.Item>

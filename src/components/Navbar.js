@@ -5,7 +5,7 @@ import AuthContext from "../context/AuthContext";
 import LogOut from "./LogOut";
 
 
-function NavBar() {
+ function NavBar() {
 
    const {token} = useContext(AuthContext) 
 
@@ -24,6 +24,10 @@ function NavBar() {
       <Nav.Link href="/buyhouse">Buy</Nav.Link>
       <Nav.Link href="/renthouse">Rent</Nav.Link>
       <Nav.Link href="/adcreate">Advertise</Nav.Link>
+
+      <Nav.Link href="/agents">Agent Finder</Nav.Link>
+       { token ? <Nav.Link href="/manageitens">Manageitens</Nav.Link> : null }
+      
       <div className="manageitens">
        { token ? <Nav.Link href="/manageitens">Manage Advertise</Nav.Link> : null }
        </div>

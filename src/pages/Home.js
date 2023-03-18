@@ -54,7 +54,10 @@ const Home = () => {
         <p> New Listings </p>
         <div className="hero-text">
           <h1> Find it. Tour it. Own it.</h1>
+      
+
           <p>“Relationships Built on Trust”</p>
+
           <div className="input-group">
             <div className="form-outline">
               <div className="form-outline">
