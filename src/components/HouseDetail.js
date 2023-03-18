@@ -38,7 +38,7 @@ function HouseDetail() {
   console.log(house);
   return ( 
     <>
-     <Card style={{ width: "15rem" }}>
+{/*       <Card style={{ width: "15rem" }}>
       <Card.Img
         style={{ height: "19np8.81px" }}
         variant="top"
@@ -63,33 +63,22 @@ function HouseDetail() {
         <ListGroup.Item className="list-group-item card"/>
           Price:{house.price}
         </ListGroup>
-      </Card>
+      </Card>  */}
     <div className="cardDetail">
       <Card className="card">
-        <Carousel
-          className="carousel"
-          style={{ objectFit: "cover" }}
-          variant="top"
+        <Carousel className="carousel" style={{ objectFit: "cover" }} variant="top"
         >
           <Carousel.Item>
             <img className="d-block" src={house.picture[0]} alt="First slide" />
           </Carousel.Item>
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={house.picture[1]}
-              alt="Second slide"
-            />
+            <img className="d-block w-100" src={house.picture[1]} alt="Second slide"/>
           </Carousel.Item>
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={house.picture[2]}
-              alt="Third slide"
+            <img className="d-block w-100" src={house.picture[2]} alt="Third slide"
             />
           </Carousel.Item>
         </Carousel>
-      </Card>
         <div className="card-title">
         </div>
         <ListGroup>
@@ -105,6 +94,7 @@ function HouseDetail() {
           <ListGroup.Item>Year: {house.builtYear}</ListGroup.Item>
           <ListGroup.Item>Price:{house.price}</ListGroup.Item>
         </ListGroup>    
+      </Card>
     </div>
     </>
   );
