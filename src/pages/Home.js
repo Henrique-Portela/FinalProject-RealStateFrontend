@@ -54,9 +54,9 @@ const Home = () => {
         <div className="hero-text">
           <h1> Find it. Tour it. Own it.</h1>
          
-          <div class="input-group">
-            <div class="form-outline">
-              <div class="form-outline">
+          <div className="input-group">
+            <div className="form-outline">
+              <div className="form-outline">
                 <input
                   type="text"
                   value={search}

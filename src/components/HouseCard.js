@@ -32,7 +32,8 @@ function HouseCard( {house} ) {
         <ListGroup.Item className="list-group-item card">City: {house.address.city}</ListGroup.Item>
         <ListGroup.Item className="list-group-item card">State: {house.address.state}</ListGroup.Item>
         <ListGroup.Item className="list-group-item card">Zip code: {house.address.zipCode}</ListGroup.Item>
-        <ListGroup.Item className="list-group-item card">Year: {house.builtYear}</ListGroup.Item>  
+        <ListGroup.Item className="list-group-item card">Year: {house.builtYear}</ListGroup.Item>
+        <ListGroup.Item className="list-group-item card">For: {house.sellRent}</ListGroup.Item> 
       </ListGroup>
        </ListGroup>
     </Card>

@@ -42,7 +42,7 @@ const AgentCreatePage = () => {
           icon: "success",
           button: "OK",
         });
-        navigate("/viewagent");
+        navigate("/agents");
       })
       .catch((err) => console.log(err));
   };
@@ -85,7 +85,7 @@ const AgentCreatePage = () => {
                 Phone Number
               </label>
               <input
-                type="number"
+                type="text"
                 className="form-control"
                 id="agentphonenumber"
                 value={phoneNumber}
