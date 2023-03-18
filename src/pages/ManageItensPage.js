@@ -39,7 +39,7 @@ const ManageItensPage = props => {
     }
 
     if(!house) {
-        return <p> No house found</p>
+        return <p> Not house found</p>
     }
   
     return (

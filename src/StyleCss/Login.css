@@ -1,19 +1,16 @@
-
-
-.icon{
-display: flex;
-align-items: center;
-position: relative;
-justify-content: flex-end;
-  
+.icon {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: flex-end;
 }
 
-.iconEyes{
+.iconEyes {
   position: absolute;
   margin-right: 10px;
 }
 
-.btn-login{
+.btn-login {
   position: absolute;
   top: 15%;
   left: 90%;

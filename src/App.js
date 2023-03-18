@@ -1,8 +1,7 @@
+
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
 import { Routes, Route } from 'react-router-dom'
-
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import HouseCard from './components/HouseCard'
@@ -11,7 +10,6 @@ import RentHouse from './pages/RentHouse'
 import BuyHouse from './pages/BuyHouse'
 import Home from './pages/Home'
 import Rent from './pages/Rent'
-
 import Contact from './pages/Contact'
 import SignUp from './pages/SignUp'
 import Login from './pages/Login'
@@ -39,17 +37,49 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/housedetails/:id" element={<HouseDetail />} />
-          <Route path="/adcreate" element={<IsLogged><AdCreate /></IsLogged>}/>
+          <Route
+            path="/adcreate"
+            element={
+              <IsLogged>
+                <AdCreate />
+              </IsLogged>
+            }
+          />
           <Route path="/ad/create/sell/house" element={<SellHouse />} />
           <Route path="/ad/create/rent/house" element={<RentHouse />} />
           <Route path="/manageitens" element={<IsLogged><ManageItensPage /></IsLogged>} />
           <Route path="/updatehouse/:id" element={<IsLogged><UpdateHousePage /></IsLogged>} />
           <Route path="/createagent" element={<IsLogged><AgentCreatePage /></IsLogged>} />
           <Route path="/agents" element={<AgentPage />} />
+
+          <Route
+            path="/manageitens"
+            element={
+              <IsLogged>
+                <ManageItensPage />
+              </IsLogged>
+            }
+          />
+          <Route
+            path="/updatehouse/:id"
+            element={
+              <IsLogged>
+                <UpdateHousePage />
+              </IsLogged>
+            }
+          />
+          <Route
+            path="/createagent"
+            element={
+              <IsLogged>
+                <AgentCreatePage />
+              </IsLogged>
+            }
+          />
         </Routes>
       </AuthProvider>
       <Footer />
     </div>
-  )
+  );
 }
-export default App
+export default App;

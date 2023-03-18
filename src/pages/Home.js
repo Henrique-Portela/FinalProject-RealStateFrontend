@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import Img from "../Img/home.jpeg";
+import "../StyleCss/Carousel.css";
 
 const Home = () => {
   const [house, setHouse] = useState([]);
@@ -49,11 +50,14 @@ const Home = () => {
   return (
     <>
       <div className="hero-image">
-        <img className="img" src={Img} alt="Home" />
-        <p> New Listings in Aledo,TX</p>
+        <img className="imghome" src={Img} alt="Home" />
+        <p> New Listings </p>
         <div className="hero-text">
           <h1> Find it. Tour it. Own it.</h1>
-         
+      
+
+          <p>“Relationships Built on Trust”</p>
+
           <div className="input-group">
             <div className="form-outline">
               <div className="form-outline">
@@ -61,7 +65,7 @@ const Home = () => {
                   type="text"
                   value={search}
                 onChange={(e) => addressSearch(e.target.value)}
-                placeholder="Enter an address, neighborhood, city or state"
+                placeholder="Address, neighborhood, city, State"
                   id="form1"
                   className="form-control-nav"
                   
@@ -78,7 +82,7 @@ const Home = () => {
       <Row>
         {filteredHouses.map((houseAtual) => {
           return (
-            <Col>
+            <Col className= "col-2">
               <Link to={`/housedetails/${houseAtual._id}`}>
                 <HouseCard house={houseAtual} />
               </Link>
