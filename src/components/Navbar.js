@@ -7,9 +7,9 @@ import LogOut from "./LogOut";
 
  function NavBar() {
 
-   const {token} = useContext(AuthContext) 
+  const token = localStorage.getItem("token");
 
-    const  [tokenlogin, setTokenlogin] = useState(token)
+  const  [tokenlogin, setTokenlogin] = useState(token)
   
    // console.log(token)
    useEffect(() => {
@@ -24,10 +24,7 @@ import LogOut from "./LogOut";
       <Nav.Link href="/buyhouse">Buy</Nav.Link>
       <Nav.Link href="/renthouse">Rent</Nav.Link>
       <Nav.Link href="/adcreate">Advertise</Nav.Link>
-
       <Nav.Link href="/agents">Agent Finder</Nav.Link>
-       { token ? <Nav.Link href="/manageitens">Manageitens</Nav.Link> : null }
-      
       <div className="manageitens">
        { token ? <Nav.Link href="/manageitens">Manage Advertise</Nav.Link> : null }
        </div>

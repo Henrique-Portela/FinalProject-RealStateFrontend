@@ -16,6 +16,9 @@
 .cardDetail{
     display: flex;
     justify-content: center;
+    width: 400px;
+    align-items: center;
+    margin-left: 450px;
 }
 .homeCard{
     width: 18rem;

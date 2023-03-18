@@ -50,7 +50,7 @@ const BuyHouse = () => {
     <>
       <div className="hero-image-buy">
         <img className="imgbuy" src={Img} alt="Homebuy"/>
-        <p> <b>Homes for Sale</b></p>
+        <p></p>
         <div className="hero-text-buy">
           <h1>Discover your perfect home®</h1>
           

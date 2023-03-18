@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import AgentCard from '../components/AgentCard'
+import HouseCard from "../components/HouseCard"
 import Img from '../Img/AgentsPic3.jpeg'
 
 
@@ -43,7 +44,7 @@ const AgentPage = props => {
     return (
         <div className="container">
             <div className="agent-image">
-                <img className="img" style={{height: '25rem', width:'100%'}} src={Img} alt="Home" />
+                <img className="agentimg" style={{height: '25rem', width:'100%'}} src={Img} alt="Home" />
                 <p></p>
                 <div className="agent-text">
                     <h1> Find here your favorite agent.</h1>
@@ -72,6 +73,7 @@ const AgentPage = props => {
                     return (
                         
                         <AgentCard agent={agent} key={agent._id} />
+                        
                     )
                 }) }
             </div>

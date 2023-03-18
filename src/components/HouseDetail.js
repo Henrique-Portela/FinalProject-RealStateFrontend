@@ -36,9 +36,9 @@ function HouseDetail() {
     return <p>loading</p>;
   }
   console.log(house);
-  return (
-
-    <Card style={{ width: "15rem" }}>
+  return ( 
+    <>
+{/*       <Card style={{ width: "15rem" }}>
       <Card.Img
         style={{ height: "19np8.81px" }}
         variant="top"
@@ -60,41 +60,29 @@ function HouseDetail() {
         <ListGroup.Item className="list-group-item card">
           HouseSize:{house.houseSize}
         </ListGroup.Item>
-        <ListGroup.Item className="list-group-item card">
+        <ListGroup.Item className="list-group-item card"/>
           Price:{house.price}
-=======
+        </ListGroup>
+      </Card>  */}
     <div className="cardDetail">
       <Card className="card">
-        <Carousel
-          className="carousel"
-          style={{ objectFit: "cover" }}
-          variant="top"
+        <Carousel className="carousel" style={{ objectFit: "cover" }} variant="top"
         >
           <Carousel.Item>
             <img className="d-block" src={house.picture[0]} alt="First slide" />
           </Carousel.Item>
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="holder.js/800x400?text=Second slide&bg=282c34"
-              alt="Second slide"
-            />
+            <img className="d-block w-100" src={house.picture[1]} alt="Second slide"/>
           </Carousel.Item>
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="holder.js/800x400?text=Third slide&bg=20232a"
-              alt="Third slide"
+            <img className="d-block w-100" src={house.picture[2]} alt="Third slide"
             />
           </Carousel.Item>
         </Carousel>
-
         <div className="card-title">
-          <h3></h3>
         </div>
         <ListGroup>
         <ListGroup.Item>BedRooms: {house.bedRooms}
-
         </ListGroup.Item>
         <ListGroup.Item>Baths:{house.baths}</ListGroup.Item>
          <ListGroup.Item>Address: {house.address.street}</ListGroup.Item>
@@ -105,10 +93,10 @@ function HouseDetail() {
           <ListGroup.Item> HouseSize:{house.houseSize}</ListGroup.Item>
           <ListGroup.Item>Year: {house.builtYear}</ListGroup.Item>
           <ListGroup.Item>Price:{house.price}</ListGroup.Item>
-        </ListGroup>
-     
+        </ListGroup>    
       </Card>
     </div>
+    </>
   );
 }
 

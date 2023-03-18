@@ -50,7 +50,7 @@ const RentHouse = () => {
     <>
       <div className="hero-image-rent">
         <img className="imgRent" src={Img} alt="HomeRent" />
-        <p> Homes for Rent</p>
+        <p></p>
         <div className="hero-text-rent">
           <h1> Find it. Tour it. Rent it.</h1>
           <p>“Relationships Built on Trust”</p>
