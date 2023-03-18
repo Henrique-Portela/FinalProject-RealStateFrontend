@@ -5,7 +5,7 @@ import AuthContext from "../context/AuthContext";
 import LogOut from "./LogOut";
 
 
-function NavBar() {
+ function NavBar() {
 
   const token = localStorage.getItem("token");
 

@@ -36,7 +36,34 @@ function HouseDetail() {
     return <p>loading</p>;
   }
   console.log(house);
-  return (
+  return ( 
+    <>
+     <Card style={{ width: "15rem" }}>
+      <Card.Img
+        style={{ height: "19np8.81px" }}
+        variant="top"
+        src={house.picture[0]}
+      />
+      <div className="card-title">
+        <h3>{house.address.street}</h3>
+      </div>
+      <ListGroup className="list-group-flush">
+        <ListGroup.Item className="list-group-item card">
+          {house.houseSize}
+        </ListGroup.Item>
+        <ListGroup.Item className="list-group-item card">
+          BedRooms: {house.bedRooms}
+        </ListGroup.Item>
+        <ListGroup.Item className="list-group-item card">
+          Baths:{house.baths}
+        </ListGroup.Item>
+        <ListGroup.Item className="list-group-item card">
+          HouseSize:{house.houseSize}
+        </ListGroup.Item>
+        <ListGroup.Item className="list-group-item card"/>
+          Price:{house.price}
+        </ListGroup>
+      </Card>
     <div className="cardDetail">
       <Card className="card">
         <Carousel
@@ -62,9 +89,8 @@ function HouseDetail() {
             />
           </Carousel.Item>
         </Carousel>
-
+      </Card>
         <div className="card-title">
-          <h3></h3>
         </div>
         <ListGroup>
         <ListGroup.Item>BedRooms: {house.bedRooms}
@@ -78,10 +104,9 @@ function HouseDetail() {
           <ListGroup.Item> HouseSize:{house.houseSize}</ListGroup.Item>
           <ListGroup.Item>Year: {house.builtYear}</ListGroup.Item>
           <ListGroup.Item>Price:{house.price}</ListGroup.Item>
-        </ListGroup>
-     
-      </Card>
+        </ListGroup>    
     </div>
+    </>
   );
 }
 
