@@ -92,7 +92,7 @@ const AdCreatePage = (props) => {
           <form className="row g-3" onSubmit={handleSubmit}>
             <div className="col-md-2">
               <label for="inputseelrent" className="form-label">
-                Seel / Rent
+                Sell / Rent
               </label>
               <select
                 onChange={(e) => setSellRent(e.target.value)}

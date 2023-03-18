@@ -5,7 +5,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Icon } from 'react-icons-kit'
 import { eye } from 'react-icons-kit/feather/eye'
 import { eyeOff } from 'react-icons-kit/feather/eyeOff'
-import { Toaster } from 'react-hot-toast'
 import AuthContext from '../context/AuthContext'
 import swal from 'sweetalert'
 

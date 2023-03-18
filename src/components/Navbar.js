@@ -7,16 +7,17 @@ import LogOut from "./LogOut";
 
 function NavBar() {
 
-  /* const {token} = useContext(AuthContext) */
+  const token = localStorage.getItem("token");
 
-    const  [token, setToken] = useState()
+  const  [tokenlogin, setTokenlogin] = useState(token)
   
-
+   // console.log(token)
    useEffect(() => {
     const userToken = localStorage.getItem('token')
-      setToken(userToken)
-   },[]) 
-   console.log(token)
+     setTokenlogin(userToken)
+    console.log(userToken)
+   },[tokenlogin]) 
+   //console.log(token)
   return (
     <nav className="nav flex space-x-10">
       <Nav.Link href="/">Home</Nav.Link>
@@ -24,8 +25,9 @@ function NavBar() {
       <Nav.Link href="/renthouse">Rent</Nav.Link>
       <Nav.Link href="/adcreate">Advertise</Nav.Link>
       <Nav.Link href="/agents">Agent Finder</Nav.Link>
-       { token ? <Nav.Link href="/manageitens">Manageitens</Nav.Link> : null }
-      
+      <div className="manageitens">
+       { token ? <Nav.Link href="/manageitens">Manage Advertise</Nav.Link> : null }
+       </div>
       <div className="login-button">
         { token ? <LogOut /> : <Nav.Link href="/login">Sign in</Nav.Link>}
 
